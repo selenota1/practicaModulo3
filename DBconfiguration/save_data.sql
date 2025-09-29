@@ -37,12 +37,6 @@ VALUES (
         '1995-02-18'
     ),
     (
-        'David Ramírez',
-        'david.ramirez7@example.com',
-        '1234567896',
-        '1983-09-09'
-    ),
-    (
         'Elena Ortega',
         'elena.ortega8@example.com',
         '1234567897',
@@ -65,12 +59,6 @@ VALUES (
         'pedro.morales11@example.com',
         '1234567800',
         '1986-04-17'
-    ),
-    (
-        'Clara Hernández',
-        'clara.hernandez12@example.com',
-        '1234567801',
-        '1994-0630'
     ),
     (
         'Jorge Rojas',
