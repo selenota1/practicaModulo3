@@ -1,0 +1,17 @@
+services: #sercicios que se van a levantar con mi docker-compose
+  postgres: #nombre del servicio
+    build: . #Construir contenedor usando Dockerfile presente en el directorio actual
+    container_name: ContDBpractMod3 # Nombre del contenedor
+    ports:
+      - "5432:5432" # Puerto para conectar desde tu máquina host al
+    environment:
+      POSTGRES_USER: Admin # Usuario de la base de datos
+      POSTGRES_PASSWORD: p4ssw0rdDB # Contraseña del usuario
+      POSTGRES_DB: credenciales # Nombre de la base de datos
+    volumes:
+    #Espacio donde se conservan los datos al detener el contenedor
+      - postgres_data:/var/lib/postgresql/data # Espacio donde los datos
+#se deifne el volumen de manera global 
+volumes:
+  postgres_data:
+    driver: local
