@@ -11,6 +11,7 @@ services: #sercicios que se van a levantar con mi docker-compose
     volumes:
     #Espacio donde se conservan los datos al detener el contenedor
       - postgres_data:/var/lib/postgresql/data # Espacio donde los datos
+
 #se deifne el volumen de manera global 
 volumes:
   postgres_data:
