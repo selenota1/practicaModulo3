@@ -82,19 +82,19 @@ VALUES (
         'Camila Paredes',
         'camila.paredes16@example.com',
         '1234567805',
-        '1997-1119'
+        '1997-11-19'
     ),
     (
         'Ricardo Vargas',
         'ricardo.vargas17@example.com',
         '1234567806',
-        '1984-0723'
+        '1984-07-23'
     ),
     (
         'Daniela Flores',
         'daniela.flores18@example.com',
         '1234567807',
-        '1996-0301'
+        '1996-03-01'
     ),
     (
         'Héctor Serrano',
