@@ -108,7 +108,6 @@ VALUES (
         '1234567809',
         '1990-09-05'
     );
-
 -- Insertar datos en la tabla credenciales
 INSERT INTO credenciales (id_usuario, username, password_hash)
 VALUES (1, 'juan.perez1', 'hash_juan_perez'),
