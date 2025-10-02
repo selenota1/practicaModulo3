@@ -1,5 +1,5 @@
 import psycopg2
-import getpass
+import getpass #vuelve invisible en pantalla un input
 
 # Configuración de conexión a la base de datos en Docker
 DB_HOST = "localhost"
@@ -48,15 +48,17 @@ def obtener_datos_usuario(username, password):
             print(f"Correo: {usuario[2]}")
             print(f"Teléfono: {usuario[3]}")
             print(f"Fecha de Nacimiento: {usuario[4]}")
+            cursor.close()
+            conn.close()
         else:
             print("\nUsuario o contraseña incorrectos.")
             cursor.close()
             conn.close()
     except Exception as e:
         print("Error al consultar la base de datos:", e)
-        
-if __name__== "_main_":
-    print("Bienvenido al inicio de sesión en la base de datos")
+
+if __name__ == "__main__":
+    print("Inicio de sesión en la base de datos")
     # Solicitar credenciales al usuario
     user = input("Ingrese su usuario: ")
     pwd = getpass.getpass("Ingrese su contraseña: ")#No muestra la contraseña a escribir
