@@ -110,7 +110,7 @@ def actualizar_correo(id_usuario, nuevo_correo):
 
         #Se ejectan los cambios
         conn.commit()
-        print("El correo se actualio correctamente")
+        print("El correo se actualizo correctamente")
 
     except Exception as e:
         conn.rollback()
@@ -120,13 +120,71 @@ def actualizar_correo(id_usuario, nuevo_correo):
         conn.close()
             
 
+
+def eliminar_usuario(id_usuario):
+    conn = conectar_db()
+    if not conn:
+        return
+    
+    try:
+        cursor = conn.cursor()
+        #Primero debemos eliminar la credencial primero por las llaves foraneas
+        cursor.execute("DELETE FROM credenciales WHERE id_usuario = %s", (id_usuario))
+
+        #Eliminamos el usuairo
+        cursor.execute("DELETE FROM usuarios WHERE id_usuario = %s", (id_usuario))
+
+    except Exception as e:
+        print("No se puedo eliminar: ", e)
+        conn.rollback()
+
+    finally:
+        cursor.close()
+        conn.close()  
+
+def menu():
+    while True:
+        print ("Menu principal ")
+        print ("1.- Modulo de Consultar usuario")
+        print ("2.- Modulo de Agregar usuario")
+        print ("3.- Modulo de Actualizar usuario")
+        print ("4.- Modulo de Eliminar usuario")
+        print ("5.- Modulo de Actualizar usuario")
+        print ("0.- Salir")
+
+        opcion = input("")
+
+
 if __name__ == "__main__":
+
+
+    #inicio de sesión
     print("Inicio de sesión en la base de datos")
     # Solicitar credenciales al usuario
     user = input("Ingrese su usuario: ")
     pwd = getpass.getpass("Ingrese su contraseña: ")#No muestra la contraseña a escribir
     #Consultar base de datos
     obtener_datos_usuario(user, pwd)
+
+
+    #INSERTAR DATOS
+    nombreNuevo = input ("Ingresa el nombre de uasuario:")
+    correo = input ("Ingresa el correo electronico:")
+    telefono = input("Ingresa el telefono:")
+    fecha_nacimiento = input ("ingresa la fecha de nacimiento:")
+    usuairo = input ("ingresa nombre de usuario nuevo:")
+    contra = input ("Ingresa la nueva contraseña")
+    insertar_usuario = input (nombreNuevo, correo, telefono, fecha_nacimiento, usuario, contraseña)
+
+    #ACTUALIZAR CORREO ELECTRONICO
     print ("Modulo de actualizacion de correo")
     id_usuario = input ("Ingresa el id de usuario al que deseas actualizar")
+    correoNuevo = input ("Ingresa el nuevo correo electronico" )
+    actualizar_correo(id_usuario,correoNuevo)
+
+
+    #ELIMINAR USUARIO
+    print("Modulo de eliminar usuario")
+    id_usuario = input("Ingresa el id del usuario que deseas eliminar")
+    eliminar_usuario()
 
